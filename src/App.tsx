@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { Strings, Numbers, Arrays, Object, RestApi, Functions } from './components';
+
+type Cars = {
+	car: string;
+	model: string;
+	age: number;
+};
+
+type Posts = {
+	userId: number;
+	id: number;
+	title: string;
+	body: string;
+};
+interface User {
+	userId: number;
+	id: number;
+	title: string;
+	body: string;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const fff: Array<string | number> = ['dsd', 13];
+	const [array, setArray] = useState<string[]>([
+		'sprawdzanie',
+		'tablicy',
+		'przekazanie w propsach',
+	]);
+
+	useEffect(() => {
+		fetch('https://jsonplaceholder.typicode.com/posts')
+			.then((response) => response.json())
+			.then((data) => setPosts(data.slice(0, 10)));
+	}, []);
+	const [posts, setPosts] = useState<User[]>([]);
+
+	const objCar: Cars = { car: 'Audi', model: 'a4', age: 10 };
+	return (
+		<div className='App'>
+			<h1>Test type-script</h1>
+			<Strings text1={'props przekazany'} text2={'drugi props przekazany'} />
+			<Numbers number={50} number2={100} />
+			<Arrays arrayX={array} />
+			<Object objX={objCar} car={'Fiat'} />
+      <RestApi postsX={posts} />
+      <Functions />
+		</div>
+	);
 }
 
 export default App;
