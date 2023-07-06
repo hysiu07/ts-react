@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { Strings, Numbers, Arrays, Object, RestApi, Functions } from './components';
-
-type Cars = {
-	car: string;
-	model: string;
-	age: number;
-};
+import {
+	Strings,
+	Numbers,
+	Arrays,
+	Object,
+	RestApi,
+	Functions,
+	Status,
+	Heading,
+	Oscar,
+} from './components';
 
 type Posts = {
 	userId: number;
@@ -36,7 +40,7 @@ function App() {
 	}, []);
 	const [posts, setPosts] = useState<User[]>([]);
 
-	const objCar: Cars = { car: 'Audi', model: 'a4', age: 10 };
+	const objCar = { car: 'Audi', model: 'a4', age: 10 };
 	return (
 		<div className='App'>
 			<h1>Test type-script</h1>
@@ -44,8 +48,13 @@ function App() {
 			<Numbers number={50} number2={100} />
 			<Arrays arrayX={array} />
 			<Object objX={objCar} car={'Fiat'} />
-      <RestApi postsX={posts} />
-      <Functions />
+			<RestApi postsX={posts} />
+			<Functions />
+			<Status status={'error'} />
+			<Heading>Heading Children</Heading>
+			<Oscar>
+				<Heading>Heading Children 2.0</Heading>
+			</Oscar>
 		</div>
 	);
 }
