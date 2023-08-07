@@ -23,11 +23,12 @@ function Functions() {
 		setText(event.target.value);
 		console.log(text);
 	};
-  const onclick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-    if (inputRef.current) {
-      console.log(inputRef.current.value);
-    }
-  };
+	const onclick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+		if (inputRef.current) {
+			console.log(inputRef.current.value);
+		}
+	};
+
 	return (
 		<div>
 			<h1>Functions</h1>
