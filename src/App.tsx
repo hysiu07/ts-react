@@ -10,6 +10,9 @@ import {
 	Status,
 	Heading,
 	Oscar,
+	Button,
+	Input,
+	Style,
 } from './components';
 
 type Posts = {
@@ -55,6 +58,13 @@ function App() {
 			<Oscar>
 				<Heading>Heading Children 2.0</Heading>
 			</Oscar>
+			<Button
+				handleClick={(event, id) => {
+					console.log('clicked button', event, id);
+				}}
+			/>
+			<Input value='value' />
+			<Style styles={{ border: '1px dolid black', padding: '1rem' }} />
 		</div>
 	);
 }
