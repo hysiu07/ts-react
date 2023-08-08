@@ -1,4 +1,9 @@
 import { useEffect, useState } from 'react';
+import { ThemeContextProvider } from './components/context/ThemeContext';
+import { Box } from './components/context/Box';
+
+import { UserContexProvider } from './components/context/UserContext';
+import { User } from './components/context/User';
 import './App.css';
 import {
 	Strings,
@@ -13,6 +18,8 @@ import {
 	Button,
 	Input,
 	Style,
+	Usehook,
+	UsehookAdvancetype,
 } from './components';
 
 type Posts = {
@@ -65,6 +72,14 @@ function App() {
 			/>
 			<Input value='value' />
 			<Style styles={{ border: '1px dolid black', padding: '1rem' }} />
+			<Usehook />
+			<UsehookAdvancetype />
+			<ThemeContextProvider>
+				<Box />
+			</ThemeContextProvider>
+			<UserContexProvider>
+				<User />
+			</UserContexProvider>
 		</div>
 	);
 }
