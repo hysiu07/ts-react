@@ -21,6 +21,10 @@ import {
 	Usehook,
 	UsehookAdvancetype,
 } from './components';
+import UseRef from './components/UseRef';
+import { Private } from './components/ComponentProp/Private';
+import { Profile } from './components/ComponentProp/Profile';
+import { Generic } from './components/Generic';
 
 type Posts = {
 	userId: number;
@@ -80,6 +84,30 @@ function App() {
 			<UserContexProvider>
 				<User />
 			</UserContexProvider>
+			<UseRef />
+			<Private isLoggedIn={true} component={Profile} />
+			{/* <Generic items={['1', '2', '3']} onClick={(item) => console.log(item)} />
+			<Generic items={[1, 2, 3]} onClick={(item) => console.log(item)} /> */}
+			<Generic
+				items={[
+					{
+						first: 'Bruce',
+						last: 'Wayne',
+						id: 1,
+					},
+					{
+						first: 'Daniel',
+						last: 'Hys',
+						id: 2,
+					},
+					{
+						first: 'Eliza',
+						last: 'Mlot',
+						id: 3,
+					},
+				]}
+				onClick={(item) => console.log(item)}
+			/>
 		</div>
 	);
 }
