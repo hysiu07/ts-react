@@ -25,6 +25,7 @@ import UseRef from './components/UseRef';
 import { Private } from './components/ComponentProp/Private';
 import { Profile } from './components/ComponentProp/Profile';
 import { Generic } from './components/Generic';
+import TemplateLiterals from './components/TemplateLiterals';
 
 type Posts = {
 	userId: number;
@@ -108,6 +109,7 @@ function App() {
 				]}
 				onClick={(item) => console.log(item)}
 			/>
+			<TemplateLiterals position='left-center'/>
 		</div>
 	);
 }
